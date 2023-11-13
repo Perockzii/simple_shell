@@ -17,9 +17,14 @@ void execute_prompt(const char *prompt)
 	}
 	else if (infant_pid == 0)
 	{
-		execlp(prompt, prompt, (char *)NULL);
-		perror("execlp");
-		exit(EXIT_FAILURE);
+		char *args[] = {"/bin/ls", NULL};
+		char *envp[] = {NULL};
+
+		if (execve(prompt, args, envp) == -1)
+		{
+			perror("execvp");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 	{
