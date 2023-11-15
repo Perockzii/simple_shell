@@ -22,7 +22,7 @@ void execute_prompt(const char *prompt)
 
 		if (execve(prompt, args, envp) == -1)
 		{
-			perror("execvp");
+			perror("execve");
 			exit(EXIT_FAILURE);
 		}
 	}

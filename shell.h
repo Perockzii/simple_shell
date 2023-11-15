@@ -16,6 +16,7 @@ void brice_print(const char *feedback);
 void prompt_display(void);
 void read_prompt(char *prompt, size_t size);
 void execute_prompt(const char *prompt);
+void exec_prompt(const char *prompt, char *const args[]);
 
 #endif
 
